@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Lets see what Java script can do</h3>
+    <p id="goo"></p>
+    <script>
+        document.getElementById("goo").innerHTML = "Hello World!";
+    </script>
+    <button type="button" onclick="myFunction()">Click me!</button>
+    <p id="dream">just doing random things</p>
+    <script>
+       function myFunction(){
+                document.getElementById("dream").innerHTML = "Don't do Random things";
+        }
+    </script>
+    <h1 id="heading">I am not going anywhere</h1>
+    <button type="button" onclick="change()">Change it...</button>
+    <script>
+        function change(){
+            document.getElementById("heading").style.color="yellow"
+            document.getElementById("heading").style.backgroundColor ="pink"
+            document.getElementById("heading").style.fontSize ="200px"
+        }
+    </script>
+</body>
+</html>
