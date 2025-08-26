@@ -1,0 +1,15 @@
+a:link{
+    background-color: red;
+    padding: 20px;
+    border: 2px black;
+    color: blue;
+    border-radius: 10% ;
+    text-decoration: none;
+}
+a:hover{
+    background-color: violet;
+    padding:20px;
+    border:2px red;
+    border-radius: 10%;
+    text-decoration: none;
+}
