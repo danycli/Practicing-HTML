@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding: 20px;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            animation: fadeIn 1s ease-out;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(45deg) translate(-20%, -20%);
+            }
+            100% {
+                transform: rotate(45deg) translate(100%, 100%);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .logo h1 {
+            color: #333;
+            font-size: 28px;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #e73c7e;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+            animation: slideIn 0.5s ease-out;
+            animation-fill-mode: backwards;
+        }
+
+        .input-group:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .input-group:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: #f5f5f5;
+            border-radius: 10px;
+            outline: none;
+            transition: all 0.3s ease;
+            padding-left: 45px;
+        }
+
+        .input-group input:focus {
+            background: #eaeaea;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #888;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 14px;
+            animation: fadeIn 1s ease-out 0.6s;
+            animation-fill-mode: backwards;
+        }
+
+        .remember-forgot label {
+            display: flex;
+            align-items: center;
+            color: #555;
+        }
+
+        .remember-forgot input {
+            margin-right: 5px;
+        }
+
+        .remember-forgot a {
+            color: #e73c7e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .remember-forgot a:hover {
+            color: #23a6d5;
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background: linear-gradient(45deg, #e73c7e, #23a6d5);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out 0.8s;
+            animation-fill-mode: backwards;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(45deg, #23a6d5, #e73c7e);
+        }
+
+        .register-link {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #555;
+            animation: fadeIn 1s ease-out 1s;
+            animation-fill-mode: backwards;
+        }
+
+        .register-link a {
+            color: #e73c7e;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .register-link a:hover {
+            color: #23a6d5;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 20px;
+            }
+            
+            .logo h1 {
+                font-size: 24px;
+            }
+            
+            .input-group input {
+                padding: 12px;
+                padding-left: 40px;
+            }
+            
+            .btn {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="logo">
+                <h1>Animated<span>Login</span></h1>
+            </div>
+            <form>
+                <div class="input-group">
+                    <i>👤</i>
+                    <input type="text" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i>🔒</i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <div class="register-link">
+                    Don't have an account? <a href="#">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
