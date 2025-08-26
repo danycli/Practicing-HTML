@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .reg{
+            background-color: #333333;
+            margin: auto;
+            padding: 30px;
+            width: 45%;
+            color: white;
+        }
+        .fo{
+            background-color: aqua;
+            color: black;
+            margin: auto;
+            width: 35%;
+            padding: 10px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="reg">
+    <h1 style="text-align: center;">Registration Form</h1>
+    </div>
+    <div class="fo">
+        <fieldset style="border: 3px solid black;">
+        <legend>Personal Info:</legend>
+    <form style="text-align: center;" autocomplete="off" action="BookShopping.html">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="FirstName"><br>
+        <label for="lname">Lastname:</label><br>
+        <input type="text" id="lname" name="Lastname"><br>
+        <input type="submit" name="submit" id="submit" value="Submit">
+        <br>
+    </form>
+    </fieldset>
+    </div>
+    <label for="cars">Select a car</label>
+        <select name="car" id="cars" size="2" multiple>
+            <option value="bmw">BMW</option>
+            <option value="koniseg">Koniseg</option>
+            <option value="ferarri">Ferarri</option>
+            <option value="vol">Wolkswagon</option>
+            <option value="toyota">Fortuner</option>
+        </select>
+        <br>
+        <textarea name="poem" id="poem" style="width: 40%; height: 40%;">Enter the text</textarea>
+        <button type="button" onclick="alert('Hello MF!')">Don't Click Me!</button>
+</body>
+</html>
